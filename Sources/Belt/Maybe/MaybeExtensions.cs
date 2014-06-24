@@ -10,6 +10,7 @@ namespace Belt.Maybe
 
     public static class MaybeExtensions
     {
+		// TODO Implement overload for reference types (that does the same as ItOrDefault)
         public static T? AsNullable<T>(this IMaybe<T> maybe) where T : struct
         {
             return maybe.Exists ? maybe.It : (T?)null;
