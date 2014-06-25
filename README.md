@@ -14,6 +14,8 @@ In my programs, `null` is never, ever a valid value and always considered a bug.
 
 If we cannot use null for optional things like 0..1 relations, we need something else. Enter `Maybe<T>`. You will never ask yourself again "do I need a null check here?".
 
+Of course there are situations when you need to use `null`, for example if a library expects it. For that case, the Maybe offers conversion methods, which again make the intention clear.
+
 
 Usage
 ------
@@ -32,7 +34,7 @@ Just use one of the `It...` properties to get the original value out of the mayb
 
 Use `Maybe.FromNullable()` to wrap a value in a maybe, creating an empty one if the value is `null`, or an existing one if it isn't. There are two overloads, one for reference types, one for nullable value types. 
 
-Similarly, use the `AsNullable()` extension methods to retrieve the value (value exists) or null (maybe is empty).
+Similarly, use the `AsNullable()` extension method to retrieve the value as nullable value-type. For reference-typed maybes, `ItOrDefault` is the way to go, since `default(T) == null` for reference types.
 
 
 
