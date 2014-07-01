@@ -15,7 +15,7 @@
     <tags>immutable, maybe, option type</tags>
     <dependencies>
       <!-- TODO Change version number accordingly -->
-      <dependency id="Maybe" version="0.8.1" />
+      <dependency id="Maybe" version="0.8.3" />
     </dependencies>
   </metadata>
 </package>
