@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/thedmi/Maybe</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Minor usability improvements.</releaseNotes>
+    <releaseNotes>First standalone release (separated from Belt).</releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags>immutable, maybe, option type</tags>
   </metadata>
