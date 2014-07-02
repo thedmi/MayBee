@@ -3,6 +3,8 @@ MayBee - A Lightweight Wrapper Type for Optional Values (aka Maybes) in .NET
 
 The `Maybe<T>` class provides a type-safe way to express optional values or relations. Conversion and projection methods enable seamless integration with libraries that represent optional values as `null`. The `IMaybe<out T>` interface provides covariance where needed.
 
+Grab the NuGet [here](https://www.nuget.org/packages/MayBee/).
+
 
 Motivation
 -----------
