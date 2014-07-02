@@ -1,4 +1,4 @@
-﻿namespace Maybe.Serialization.JsonNet
+﻿namespace MayBee.Serialization.JsonNet
 {
     using Newtonsoft.Json;
 

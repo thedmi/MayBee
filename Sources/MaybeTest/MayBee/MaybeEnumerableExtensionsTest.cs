@@ -4,12 +4,12 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MaybeTest.Maybe
+namespace MaybeTest.MayBee
 {
     using System;
     using System.Collections.Generic;
 
-    using global::Maybe;
+    using global::MayBee;
 
     using Xunit;
 

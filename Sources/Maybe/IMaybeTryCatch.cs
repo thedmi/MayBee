@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Maybe
+namespace MayBee
 {
     using System;
     using System.Diagnostics.CodeAnalysis;

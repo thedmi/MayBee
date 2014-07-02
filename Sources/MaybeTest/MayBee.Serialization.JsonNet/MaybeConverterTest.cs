@@ -1,9 +1,9 @@
-﻿namespace MaybeTest.Maybe.Serialization.JsonNet
+﻿namespace MaybeTest.MayBee.Serialization.JsonNet
 {
     using System.Diagnostics;
 
-    using global::Maybe;
-    using global::Maybe.Serialization.JsonNet;
+    using global::MayBee;
+    using global::MayBee.Serialization.JsonNet;
 
     using Newtonsoft.Json;
 
