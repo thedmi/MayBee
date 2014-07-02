@@ -7,7 +7,7 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
-    <projectUrl>https://github.com/thedmi/Maybe</projectUrl>
+    <projectUrl>https://github.com/thedmi/MayBee</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>First standalone release (separated from Belt).</releaseNotes>
@@ -15,7 +15,7 @@
     <tags>immutable, maybe, option type</tags>
     <dependencies>
       <!-- TODO Change version number accordingly -->
-      <dependency id="Maybe" version="0.9.0" />
+      <dependency id="MayBee" version="0.9.0" />
     </dependencies>
   </metadata>
 </package>

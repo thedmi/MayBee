@@ -1,11 +1,11 @@
 
-Push-Location Maybe
+Push-Location MayBee
 
 nuget pack -Build -Prop Configuration=Release -Output ..\..\..\LocalNugetFeed
 
 Pop-Location
 
-Push-Location Maybe.Serialization.JsonNet
+Push-Location MayBee.Serialization.JsonNet
 
 nuget pack -Build -Prop Configuration=Release -Output ..\..\..\LocalNugetFeed
 

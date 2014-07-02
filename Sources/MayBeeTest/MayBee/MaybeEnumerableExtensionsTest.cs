@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace MaybeTest.MayBee
+namespace MayBeeTest.MayBee
 {
     using System;
     using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿namespace MaybeTest.MayBee.Serialization.JsonNet
+﻿namespace MayBeeTest.MayBee.Serialization.JsonNet
 {
     using System.Collections.Generic;
     using System.Diagnostics;

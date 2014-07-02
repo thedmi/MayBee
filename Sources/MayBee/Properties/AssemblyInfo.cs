@@ -11,10 +11,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Maybe")]
+[assembly: AssemblyTitle("MayBee")]
 [assembly: AssemblyDescription("A wrapper type for optional values.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyProduct("Maybe")]
+[assembly: AssemblyProduct("MayBee")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,4 +34,4 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: InternalsVisibleTo("MaybeTest")]
+[assembly: InternalsVisibleTo("MayBeeTest")]

@@ -4,10 +4,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Maybe.Serialization.JsonNet")]
-[assembly: AssemblyDescription("Json.Net serialization extension for thedmi/Maybe")]
+[assembly: AssemblyTitle("MayBee.Serialization.JsonNet")]
+[assembly: AssemblyDescription("Json.Net serialization extension for MayBee")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyProduct("Maybe.Serialization.JsonNet")]
+[assembly: AssemblyProduct("MayBee.Serialization.JsonNet")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
