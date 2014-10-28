@@ -14,7 +14,7 @@ namespace MayBee
     public static class Maybe
     {
         /// <summary>
-        /// Creates an <c>IMaybe</c> from a value.
+        /// Creates an <c>Maybe</c> from a value.
         /// </summary>
         /// <param name="value">The value of the maybe. Must not be null</param>
         [Pure]
@@ -25,9 +25,10 @@ namespace MayBee
         }
 
         /// <summary>
-        /// Creates an empty <c>IMaybe</c>.
+        /// Creates an empty <c>Maybe</c>.
         /// </summary>
         [Pure]
+        [DebuggerStepThrough]
         public static Maybe<T> Empty<T>()
         {
             return new Maybe<T>();

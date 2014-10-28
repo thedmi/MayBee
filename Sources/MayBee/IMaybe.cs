@@ -20,8 +20,7 @@ namespace MayBee
         T It { get; }
 
         /// <summary>
-        /// Returns the value of the Maybe if it exists, null otherwise. This getter
-        /// is primarily designed for use with the null coalescing operator.
+        /// Returns the value of the Maybe if it exists, or default(T) otherwise. 
         /// </summary>
         T ItOrDefault { get; }
 
@@ -37,7 +36,7 @@ namespace MayBee
         T ItOrThrow(Func<Exception> exceptionCreator);
 
         /// <summary>
-        /// Returns the maybe as immutable list of T. This list has the length of one if the maybe
+        /// Returns the maybe as read-only list of T. This list has the length of one if the maybe
         /// exists, or zero if the maybe is empty.
         /// </summary>
         /// <returns>An immutable list of length one or zero.</returns>
