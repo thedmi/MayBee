@@ -56,6 +56,27 @@
         }
 
         [Fact]
+        public void Empty_boolean_maybes_roundtrip_sucessfully_to_json()
+        {
+            var testObj = new NestedType<bool> { TheMaybe = Maybe.Empty<bool>() };
+
+            var deserialized = PerformRoundtrip(testObj);
+
+            Assert.True(deserialized.TheMaybe.IsEmpty);
+        }
+
+        [Fact]
+        public void Existing_boolean_maybes_roundtrip_sucessfully_to_json()
+        {
+            var testObj = new NestedType<bool> { TheMaybe = Maybe.Is(false) };
+
+            var deserialized = PerformRoundtrip(testObj);
+
+            Assert.True(deserialized.TheMaybe.Exists);
+            Assert.False(deserialized.TheMaybe.It);
+        }
+
+        [Fact]
         public void Empty_nested_maybe_roundtrips_successfully_to_json()
         {
             var testObj = new NestedType<InnerType> { TheMaybe = Maybe.Empty<InnerType>() };
