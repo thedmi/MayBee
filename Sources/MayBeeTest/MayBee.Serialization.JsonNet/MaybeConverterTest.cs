@@ -1,5 +1,6 @@
 ﻿namespace MayBeeTest.MayBee.Serialization.JsonNet
 {
+    using System.Collections.Generic;
     using System.Diagnostics;
 
     using global::MayBee;
@@ -111,7 +112,7 @@
         [Fact]
         public void Existing_array_maybe_roundtrips_successfully_to_json()
         {
-            var testObj = new NestedType<int[]> { TheMaybe = Maybe.Is(new []{ 42, 43 }) };
+            var testObj = new NestedType<int[]> { TheMaybe = Maybe.Is(new[] { 42, 43 }) };
 
             var deserialized = PerformRoundtrip(testObj);
 
@@ -128,6 +129,26 @@
             Debug.WriteLine(json);
 
             return JsonConvert.DeserializeObject<T>(json, _jsonSerializerSettings);
+        }
+
+        [Fact]
+        public void Existing_nested_array_maybe_roundtrips_successfully_to_json()
+        {
+            var testObj = new ArrayType<TestValueType>
+            {
+                Values =
+                    new[]
+                                  {
+                                      new TestValueType { TheMaybe = Maybe.Empty<int>() },
+                                      new TestValueType { TheMaybe = Maybe.Is(1) }
+                                  }
+            };
+
+            var deserialized = PerformRoundtrip(testObj);
+
+            Assert.True(deserialized.Values.Count == 2);
+            Assert.True(deserialized.Values[0].TheMaybe.IsEmpty);
+            Assert.Equal(1, deserialized.Values[1].TheMaybe.It);
         }
 
         private class TestRefType
@@ -149,6 +170,11 @@
         {
             public int IntValue { get; set; }
             public string StringValue { get; set; }
+        }
+
+        private class ArrayType<T>
+        {
+            public IReadOnlyList<T> Values { get; set; } 
         }
     }
 }
