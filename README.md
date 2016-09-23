@@ -9,12 +9,9 @@ Grab the NuGet [here](https://www.nuget.org/packages/MayBee/).
 Motivation
 -----------
 
-In my programs, `null` is never, ever a valid value and always considered a bug. I employ this strict rule for the sake of readability, because this way
+Accepting `null` as a value that denotes "empty" for optional values has several drawbacks, the most important being the lack of type safety: The type system cannot distinguish between optional and required values, because both have the same type (except for `struct`, where we have `Nullable` to denote optional values). However, the information whether e.g. a relation is optional or required is important information, especially with domain modeling.
 
-- I never have to check actual parameters for null, since calling the method with null would be an error of the caller.
-- There is no implicit, hidden or incomprehensible notion of a non-existing value that would be a valid method parameter to mean "nothing" or "empty" or the like.
-
-If we cannot use null for optional things like 0..1 relations, we need something else. Enter `Maybe<T>`. You will never ask yourself again "do I need a null check here?".
+If we cannot use null for optional things like 0..1 relations, we need something else. Enter `Maybe<T>`.
 
 Of course there are situations when you need to use `null`, for example if a library expects it. For that case, the Maybe offers conversion methods, which again make the intention clear.
 
@@ -34,10 +31,6 @@ Just use one of the `It...` properties to get the original value out of the mayb
 
 ### Conversion to/from null
 
-Use `Maybe.FromNullable()` to wrap a value in a maybe, creating an empty one if the value is `null`, or an existing one if it isn't. There are two overloads, one for reference types, one for nullable value types. 
+Use `Maybe.FromNullable()` to wrap a value in a maybe, creating an empty one if the value is `null`, or an existing one if it isn't. There are two overloads, one for reference types, one for nullable value types.
 
 Similarly, use the `AsNullable()` extension method to retrieve the value as nullable value-type. For reference-typed maybes, `ItOrDefault` is the way to go, since `default(T) == null` for reference types.
-
-
-
-
