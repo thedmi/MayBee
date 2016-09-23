@@ -109,12 +109,29 @@ namespace MayBee
         /// Looks up a key and returns the associated value wrapped in an <see cref="IMaybe{T}"/>,
         /// or an empty <see cref="IMaybe{T}"/> if the key doesn't exist.
         /// </summary>
-        public static Maybe<TValue> Get<TKey, TValue>(this IDictionary<TKey, TValue> source, TKey key)
+        public static Maybe<TValue> Get<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> source, TKey key)
         {
-            TValue value;
-            var exists = source.TryGetValue(key, out value);
+            var dict = source as IDictionary<TKey, TValue>;
 
-            return exists ? Maybe.Is(value) : Maybe.Empty<TValue>();
-        } 
+            if (dict != null)
+            {
+                TValue value;
+                var exists = dict.TryGetValue(key, out value);
+
+                return exists ? Maybe.Is(value) : Maybe.Empty<TValue>();
+            }
+
+            var readOnlyDict = source as IReadOnlyDictionary<TKey, TValue>;
+
+            if (readOnlyDict != null)
+            {
+                TValue value;
+                var exists = readOnlyDict.TryGetValue(key, out value);
+
+                return exists ? Maybe.Is(value) : Maybe.Empty<TValue>();
+            }
+
+            return source.FirstAsMaybe(p => p.Key.Equals(key)).Select(p => p.Value);
+        }
     }
 }
