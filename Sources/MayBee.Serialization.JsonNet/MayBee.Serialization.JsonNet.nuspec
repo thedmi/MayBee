@@ -10,12 +10,11 @@
     <projectUrl>https://github.com/thedmi/MayBee</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>First standalone release (separated from Belt).</releaseNotes>
-    <copyright>Copyright 2014</copyright>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2014 - 2017</copyright>
     <tags>immutable, maybe, option type</tags>
     <dependencies>
-      <!-- TODO Change version number accordingly -->
-      <dependency id="MayBee" version="0.9.0" />
+      <dependency id="MayBee" version="1.0.0" />
     </dependencies>
   </metadata>
 </package>
