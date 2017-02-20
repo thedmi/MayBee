@@ -114,6 +114,13 @@ namespace MayBeeTest.MayBee
 
             Assert.False(empty.Exists);
         }
+
+        [Fact]
+        public void StringMaybeItOrEmptyReturnsCorrectValue()
+        {
+            Assert.Equal("Hello", Maybe.Is("Hello").ItOrEmpty());
+            Assert.Equal("", Maybe.Empty<string>().ItOrEmpty());
+        }
     }
 #pragma warning restore 612
 }

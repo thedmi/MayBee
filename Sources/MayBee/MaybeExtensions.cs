@@ -41,5 +41,10 @@ namespace MayBee
             var baseMaybe = (IMaybe<object>)maybe;
             return maybe.IsEmpty ? Maybe.Empty<TResult>() : Maybe.Is((TResult)baseMaybe.It);
         }
+
+        public static string ItOrEmpty(this IMaybe<string> maybe)
+        {
+            return maybe.ItOrDefault ?? "";
+        }
     }
 }
