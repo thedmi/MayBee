@@ -9,7 +9,6 @@ namespace MayBee
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Diagnostics.Contracts;
 
     public static class Maybe
     {
@@ -17,7 +16,6 @@ namespace MayBee
         /// Creates an <c>Maybe</c> from a value.
         /// </summary>
         /// <param name="value">The value of the maybe. Must not be null</param>
-        [Pure]
         [DebuggerStepThrough]
         public static Maybe<T> Is<T>(T value)
         {
@@ -27,7 +25,6 @@ namespace MayBee
         /// <summary>
         /// Creates an empty <c>Maybe</c>.
         /// </summary>
-        [Pure]
         [DebuggerStepThrough]
         public static Maybe<T> Empty<T>()
         {
@@ -38,7 +35,6 @@ namespace MayBee
         /// Creates an <c>IMaybe</c> from a value if it is not null.
         /// Else it creates an empty <c>IMaybe</c>. 
         /// </summary>
-        [Pure]
         [DebuggerStepThrough]
         public static Maybe<T> FromNullable<T>(T value) where T : class
         {
@@ -49,7 +45,6 @@ namespace MayBee
         /// Creates an <c>IMaybe</c> from a value if it is not null.
         /// Else it creates an empty <c>IMaybe</c>. 
         /// </summary>
-        [Pure]
         [DebuggerStepThrough]
         public static Maybe<T> FromNullable<T>(T? value) where T : struct
         {
@@ -63,7 +58,6 @@ namespace MayBee
         /// Use <see cref="IMaybeTryCatch{T}.Catch{TException}"/> to specify the expected
         /// exception.
         /// </summary>
-        [Pure]
         public static IMaybeTryCatch<T> Try<T>(Func<T> valueProducer) 
         {
             return new TryCatch<T>(valueProducer);
@@ -102,11 +96,9 @@ namespace MayBee
         {
             // If value is a value type, the comparison will always yield false, see
             // http://stackoverflow.com/a/5340850/219187
-            // ReSharper disable CompareNonConstrainedGenericWithNull
             if (existingValue == null)
-            // ReSharper restore CompareNonConstrainedGenericWithNull
             {
-                throw new ArgumentNullException("existingValue");
+                throw new ArgumentNullException(nameof(existingValue));
             }
 
             _exists = true;

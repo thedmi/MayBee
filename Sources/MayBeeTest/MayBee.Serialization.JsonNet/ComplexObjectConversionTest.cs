@@ -17,13 +17,14 @@
         [Fact]
         public void Complex_object_roundtrips_to_json()
         {
-            var obj =
-                new Wrapper(
-                    new Outer(
-                        Maybe.Empty<IntWithString>(),
-                        new List<Outer> {
-                            new Outer(Maybe.Is(new IntWithString(42, "hello")), new List<Outer>()),
-                            new Outer(Maybe.Empty<IntWithString>(), new List<Outer>())}));
+            var obj = new Wrapper(
+                new Outer(
+                    Maybe.Empty<IntWithString>(),
+                    new List<Outer>
+                    {
+                        new Outer(Maybe.Is(new IntWithString(42, "hello")), new List<Outer>()),
+                        new Outer(Maybe.Empty<IntWithString>(), new List<Outer>())
+                    }));
 
             var deserialized = PerformRoundtrip(obj);
 

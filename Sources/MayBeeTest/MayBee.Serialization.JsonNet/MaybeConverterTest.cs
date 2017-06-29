@@ -135,14 +135,14 @@
         public void Existing_nested_array_maybe_roundtrips_successfully_to_json()
         {
             var testObj = new ArrayType<TestValueType>
-            {
-                Values =
-                    new[]
+                          {
+                              Values =
+                                  new[]
                                   {
                                       new TestValueType { TheMaybe = Maybe.Empty<int>() },
                                       new TestValueType { TheMaybe = Maybe.Is(1) }
                                   }
-            };
+                          };
 
             var deserialized = PerformRoundtrip(testObj);
 
@@ -163,7 +163,7 @@
 
         private class NestedType<T>
         {
-            public IMaybe<T> TheMaybe { get; set; } 
+            public IMaybe<T> TheMaybe { get; set; }
         }
 
         private class InnerType
@@ -174,7 +174,7 @@
 
         private class ArrayType<T>
         {
-            public IReadOnlyList<T> Values { get; set; } 
+            public IReadOnlyList<T> Values { get; set; }
         }
     }
 }

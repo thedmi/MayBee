@@ -14,8 +14,8 @@
     {
         private static readonly Type _markerType = typeof(IMaybe);
 
-        private static readonly MethodInfo _emptyCreatorMethod = typeof(Maybe).GetMethod("Empty");
-        private static readonly MethodInfo _existingCreatorMethod = typeof(Maybe).GetMethod("Is");
+        private static readonly MethodInfo _emptyCreatorMethod = typeof(Maybe).GetTypeInfo().GetDeclaredMethod("Empty");
+        private static readonly MethodInfo _existingCreatorMethod = typeof(Maybe).GetTypeInfo().GetDeclaredMethod("Is");
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
@@ -24,7 +24,7 @@
             writer.WriteStartArray();
             if (maybe.Exists)
             {
-                var innerValue = maybe.GetType().GetProperty("It").GetValue(maybe);
+                var innerValue = maybe.GetType().GetTypeInfo().GetDeclaredProperty("It").GetValue(maybe);
                 serializer.Serialize(writer, innerValue);
             }
             writer.WriteEndArray();
@@ -44,7 +44,7 @@
 
         public override bool CanConvert(Type objectType)
         {
-            return objectType == _markerType || objectType.GetInterfaces().Any(i => i == _markerType);
+            return _markerType.GetTypeInfo().IsAssignableFrom(objectType.GetTypeInfo());
         }
     }
 }
