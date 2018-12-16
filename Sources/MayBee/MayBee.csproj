@@ -1,17 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Authors>Dani Michel</Authors>
-    <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/thedmi/MayBee</PackageProjectUrl>
-    <PackageTags>maybe, option, functional</PackageTags>
-    <Version>2.0.0</Version>
-    <AssemblyVersion>2.0.0</AssemblyVersion>
-    <FileVersion>2.0.0</FileVersion>
-    <Description>A lightweight wrapper type for optional values.</Description>
-    <Copyright>Copyright © 2017</Copyright>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard1.4</TargetFramework>
+
+        <PackageId>MayBee</PackageId>
+        <Authors>Geopraevent AG</Authors>
+        <Description>A lightweight wrapper type for optional values.</Description>
+        <Copyright>Copyright © 2018</Copyright>
+        <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/thedmi/MayBee</PackageProjectUrl>
+        <PackageTags>maybe, option, functional</PackageTags>
+
+        <Version>2.1.0</Version>
+        <AssemblyVersion>2.1.0</AssemblyVersion>
+    </PropertyGroup>
 
 </Project>
