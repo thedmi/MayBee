@@ -152,5 +152,10 @@ namespace MayBee
         {
             return _exists ? _value.GetHashCode() : 7907;
         }
+
+        public override string ToString()
+        {
+            return Exists ? $"[ {It.ToString()} ]" : "[]";
+        }
     }
 }
