@@ -1,8 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
-MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{12512E75-20FE-42E6-BF58-657734FB36F3}"
 	ProjectSection(SolutionItems) = preProject
 		PackNuget.ps1 = PackNuget.ps1
@@ -10,11 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		ThedmiDefaultFxCop.ruleset = ThedmiDefaultFxCop.ruleset
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MayBeeTest", "MayBeeTest\MayBeeTest.csproj", "{D61B417F-F827-48E7-B3CF-C8F5D6410779}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MayBee", "MayBee\MayBee.csproj", "{B6B73C2D-15C3-4F00-8BEC-AFAEE81B12D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MayBee.Serialization.JsonNet", "MayBee.Serialization.JsonNet\MayBee.Serialization.JsonNet.csproj", "{C37A3207-1BB2-452F-976F-B0288F28E4FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MayBeeTest", "MayBeeTest\MayBeeTest.csproj", "{D61B417F-F827-48E7-B3CF-C8F5D6410779}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D61B417F-F827-48E7-B3CF-C8F5D6410779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D61B417F-F827-48E7-B3CF-C8F5D6410779}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D61B417F-F827-48E7-B3CF-C8F5D6410779}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D61B417F-F827-48E7-B3CF-C8F5D6410779}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B6B73C2D-15C3-4F00-8BEC-AFAEE81B12D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B6B73C2D-15C3-4F00-8BEC-AFAEE81B12D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6B73C2D-15C3-4F00-8BEC-AFAEE81B12D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -34,6 +27,10 @@ Global
 		{C37A3207-1BB2-452F-976F-B0288F28E4FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C37A3207-1BB2-452F-976F-B0288F28E4FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C37A3207-1BB2-452F-976F-B0288F28E4FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D61B417F-F827-48E7-B3CF-C8F5D6410779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D61B417F-F827-48E7-B3CF-C8F5D6410779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D61B417F-F827-48E7-B3CF-C8F5D6410779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D61B417F-F827-48E7-B3CF-C8F5D6410779}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
