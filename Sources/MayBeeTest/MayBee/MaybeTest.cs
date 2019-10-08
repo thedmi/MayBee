@@ -121,6 +121,55 @@ namespace MayBeeTest.MayBee
             Assert.Equal("Hello", Maybe.Is("Hello").ItOrEmpty());
             Assert.Equal("", Maybe.Empty<string>().ItOrEmpty());
         }
+
+        [Fact]
+        public void EqualityIsPassedThroughForExistingMaybes()
+        {
+            Assert.True(Maybe.Is(new Inner("one")) == Maybe.Is(new Inner("one")));
+            Assert.False(Maybe.Is(new Inner("one")) == Maybe.Is(new Inner("two")));
+        }
+        
+        [Fact]
+        public void EmptyMaybesAreEqual()
+        {
+            Assert.True(Maybe.Empty<Inner>() == Maybe.Empty<Inner>());
+        }
+        
+        [Fact]
+        public void AnExistingAndInexistentMaybeAreNotEqual()
+        {
+            Assert.False(Maybe.Empty<Inner>() == Maybe.Is(new Inner("")));
+        }
+
+        private class Inner : IEquatable<Inner>
+        {
+            public Inner(string value)
+            {
+                Value = value;
+            }
+
+            public string Value { get; }
+
+            public bool Equals(Inner other)
+            {
+                if (ReferenceEquals(null, other)) return false;
+                if (ReferenceEquals(this, other)) return true;
+                return Value == other.Value;
+            }
+
+            public override bool Equals(object obj)
+            {
+                if (ReferenceEquals(null, obj)) return false;
+                if (ReferenceEquals(this, obj)) return true;
+                if (obj.GetType() != this.GetType()) return false;
+                return Equals((Inner)obj);
+            }
+
+            public override int GetHashCode()
+            {
+                return (Value != null ? Value.GetHashCode() : 0);
+            }
+        }
     }
 #pragma warning restore 612
 }

@@ -86,7 +86,7 @@ namespace MayBee
         }
     }
 
-    public struct Maybe<T> : IMaybe<T>
+    public struct Maybe<T> : IMaybe<T>, IEquatable<Maybe<T>>
     {
         private readonly bool _exists;
 
@@ -150,12 +150,35 @@ namespace MayBee
 
         public override int GetHashCode()
         {
-            return _exists ? _value.GetHashCode() : 7907;
+            unchecked
+            {
+                return (_exists.GetHashCode() * 397) ^ EqualityComparer<T>.Default.GetHashCode(_value);
+            }
         }
 
         public override string ToString()
         {
             return Exists ? $"[ {It.ToString()} ]" : "[]";
+        }
+
+        public static bool operator ==(Maybe<T> m1, Maybe<T> m2)
+        {
+            return m1.Equals(m2);
+        }
+
+        public static bool operator !=(Maybe<T> m1, Maybe<T> m2)
+        {
+            return !(m1 == m2);
+        }
+
+        public bool Equals(Maybe<T> other)
+        {
+            return _exists == other._exists && EqualityComparer<T>.Default.Equals(_value, other._value);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Maybe<T> other && Equals(other);
         }
     }
 }
