@@ -4,14 +4,18 @@
         <TargetFramework>netstandard2.0</TargetFramework>
 
         <PackageId>MayBee.Serialization.JsonNet</PackageId>
-        <PackageProjectUrl>https://github.com/thedmi/MayBee</PackageProjectUrl>
-        <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
         <Authors>Dani Michel</Authors>
-        <Version>2.0.0</Version>
-        <AssemblyVersion>2.0.0</AssemblyVersion>
-        <Product>MayBee.Serialization.JsonNet</Product>
+        <Company>Geopraevent AG</Company>
+        <Description>Serialization library for Maybee and Newtonsoft JSON.</Description>
+        <Copyright>Copyright © 2020</Copyright>
+        <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/thedmi/MayBee</PackageProjectUrl>
         <PackageTags>maybe, option, functional</PackageTags>
-        <Description>json.net serialization support for the MayBee library.</Description>
+
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        
+        <Version>3.0.0</Version>
+        <AssemblyVersion>3.0.0</AssemblyVersion>
     </PropertyGroup>
 
     <ItemGroup>
