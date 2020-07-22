@@ -10,7 +10,7 @@
 
     using Xunit;
 
-    public class MaybeConverterTest
+    public class MaybeAsArrayConverterTest
     {
         private readonly JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings().ConfigureMaybe();
 

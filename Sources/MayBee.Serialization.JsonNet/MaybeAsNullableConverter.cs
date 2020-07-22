@@ -1,4 +1,4 @@
-﻿namespace MayBee.Serialization.JsonNet
+namespace MayBee.Serialization.JsonNet
 {
     using System;
     using System.Collections;
@@ -6,11 +6,9 @@
     using System.Linq;
     using System.Reflection;
 
-    using MayBee;
-
     using Newtonsoft.Json;
 
-    public class MaybeConverter : JsonConverter
+    public class MaybeAsNullableConverter : JsonConverter
     {
         private static readonly Type _markerType = typeof(IMaybe);
 
@@ -21,25 +19,31 @@
         {
             var maybe = (IMaybe)value;
 
-            writer.WriteStartArray();
             if (maybe.Exists)
             {
                 var innerValue = maybe.GetType().GetTypeInfo().GetDeclaredProperty("It").GetValue(maybe);
                 serializer.Serialize(writer, innerValue);
             }
-            writer.WriteEndArray();
+            else
+            {
+                writer.WriteNull();
+            }
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            var nestedType = objectType.GenericTypeArguments.Single();
+            var innerMaybeType = objectType.GenericTypeArguments.Single();
 
-            var listType = typeof (IList<>).MakeGenericType(nestedType);
-            var valueList = (IList)serializer.Deserialize(reader, listType);
+            // For value types, we must deserialize into the nullable variant, otherwise deserializing 'null' will fail
+            var deserializationType = innerMaybeType.IsValueType
+                ? typeof(Nullable<>).MakeGenericType(innerMaybeType)
+                : innerMaybeType;
+            
+            var innerValue = serializer.Deserialize(reader, deserializationType);
 
-            return valueList.Count == 0
-                ? _emptyCreatorMethod.MakeGenericMethod(nestedType).Invoke(null, new object[] { })
-                : _existingCreatorMethod.MakeGenericMethod(nestedType).Invoke(null, new[] { valueList[0] });
+            return innerValue == null
+                ? _emptyCreatorMethod.MakeGenericMethod(innerMaybeType).Invoke(null, new object[] { })
+                : _existingCreatorMethod.MakeGenericMethod(innerMaybeType).Invoke(null, new[] { innerValue });
         }
 
         public override bool CanConvert(Type objectType)
