@@ -25,6 +25,11 @@ namespace MayBee
         T ItOrDefault { get; }
 
         /// <summary>
+        /// Returns the value of the Maybe if it exists, or <paramref name="defaultValue"/> otherwise. 
+        /// </summary>
+        T ItOr(T defaultValue);
+
+        /// <summary>
         /// Returns <see cref="It"/> or throws <paramref name="exception"/> if it doesn't exist.
         /// </summary>
         [Obsolete]

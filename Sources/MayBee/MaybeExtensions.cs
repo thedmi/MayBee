@@ -44,7 +44,7 @@ namespace MayBee
 
         public static string ItOrEmpty(this IMaybe<string> maybe)
         {
-            return maybe.ItOrDefault ?? "";
+            return maybe.ItOr("");
         }
     }
 }

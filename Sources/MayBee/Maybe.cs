@@ -121,7 +121,12 @@ namespace MayBee
             }
         }
 
-        public T ItOrDefault { get { return _exists ? _value : default(T); } }
+        public T ItOr(T defaultValue)
+        {
+            return _exists ? _value : defaultValue;
+        }
+
+        public T ItOrDefault { get { return ItOr(default(T)); } }
 
         public T ItOrThrow(Exception exception)
         {

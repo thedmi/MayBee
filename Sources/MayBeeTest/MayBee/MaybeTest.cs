@@ -116,6 +116,13 @@ namespace MayBeeTest.MayBee
         }
 
         [Fact]
+        public void CanProvideDefaultValue()
+        {
+            Assert.Equal("Hello", Maybe.Is("Hello").ItOr("Foo"));
+            Assert.Equal("Foo", Maybe.Empty<string>().ItOr("Foo"));
+        }
+
+        [Fact]
         public void StringMaybeItOrEmptyReturnsCorrectValue()
         {
             Assert.Equal("Hello", Maybe.Is("Hello").ItOrEmpty());
