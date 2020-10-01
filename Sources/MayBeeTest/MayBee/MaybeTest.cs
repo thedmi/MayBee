@@ -8,6 +8,7 @@ namespace MayBeeTest.MayBee
 {
     using System;
     using System.Collections.Generic;
+    using System.Text.RegularExpressions;
 
     using global::MayBee;
 
@@ -100,6 +101,20 @@ namespace MayBeeTest.MayBee
             var emptyLengthMaybe = Maybe.Empty<string>().Select(s => s.Length);
 
             Assert.False(emptyLengthMaybe.Exists);
+        }
+
+        [Fact]
+        public void MonadicOperationsCompose()
+        {
+            Maybe<string> TryGetNumber(string s)
+            {
+                var match = Regex.Match(s, @"\d+");
+                return match == Match.Empty ? Maybe.Empty<string>() : Maybe.Is(match.Value);
+            }
+
+            Assert.False(Maybe.Is("Hello   Foo Bar").SelectMany(TryGetNumber).Select(Int16.Parse).Select(n => n > 2).ItOrDefault);
+            Assert.False(Maybe.Is("Hello 2 Foo Bar").SelectMany(TryGetNumber).Select(Int16.Parse).Select(n => n > 2).ItOrDefault);
+            Assert.True(Maybe.Is("Hello 3 Foo Bar").SelectMany(TryGetNumber).Select(Int16.Parse).Select(n => n > 2).ItOrDefault);
         }
 
         [Fact]
