@@ -12,7 +12,7 @@ namespace MayBee
     /// <summary>
     /// Represents values of type <typeparamref name="T"/> that may or may not exist.
     /// </summary>
-    public interface IMaybe<out T> : IMaybe
+    public interface IMaybe<T> : IMaybe
     {
         /// <summary>
         /// Returns the actual value of the Maybe and throws if it is empty.
