@@ -34,3 +34,24 @@ Just use one of the `It...` properties to get the original value out of the mayb
 Use `Maybe.FromNullable()` to wrap a value in a maybe, creating an empty one if the value is `null`, or an existing one if it isn't. There are two overloads, one for reference types, one for nullable value types.
 
 Similarly, use the `AsNullable()` extension method to retrieve the value as nullable value-type. For reference-typed maybes, `ItOrDefault` is the way to go, since `default(T) == null` for reference types.
+
+
+### Monadic Operations
+
+Operating on maybes is afforded by LINQ with `Select` and `SelectMany` providing map and flatMap functionality, respectively.
+
+Given a `client` with a `LoyaltyAccount` property returning a `Maybe<LoyaltyAccount>`, and with `LoyaltyAccount` having a `Points` property, we can send emails to *only* clients having a loyalty account with more than 100 points:
+
+```
+if(client.LoyaltyAccount.Select(a => a.Points > 100).ItOrDefault) {
+	// send email
+}
+```
+
+If we further imagine that loyalty accounts may be linked to special discount rules (i.e. the `SpecialDiscounts` will return a maybe), we can send email to only clients with a special discount on books:
+
+```
+if(client.LoyaltyAccount.SelectMany(a => a.SpecialDiscounts).Select(d => d.HasBookDiscount).ItOrDefault) {
+	// send email about book discount
+}
+```
