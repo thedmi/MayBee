@@ -44,7 +44,15 @@ namespace MayBee
 
         public static string ItOrEmpty(this IMaybe<string> maybe)
         {
-            return maybe.ItOr("");
+            return maybe.ItOrDefault ?? "";
+        }
+        
+        /// <summary>
+        /// Returns the value of the Maybe if it exists, or <paramref name="defaultValue"/> otherwise. 
+        /// </summary>
+        public static T ItOr<T>(this IMaybe<T> maybe, T defaultValue)
+        {
+            return maybe.Exists ? maybe.It : defaultValue;
         }
     }
 }

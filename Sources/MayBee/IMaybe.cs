@@ -12,7 +12,7 @@ namespace MayBee
     /// <summary>
     /// Represents values of type <typeparamref name="T"/> that may or may not exist.
     /// </summary>
-    public interface IMaybe<T> : IMaybe
+    public interface IMaybe<out T> : IMaybe
     {
         /// <summary>
         /// Returns the actual value of the Maybe and throws if it is empty.
@@ -23,11 +23,6 @@ namespace MayBee
         /// Returns the value of the Maybe if it exists, or default(T) otherwise. 
         /// </summary>
         T ItOrDefault { get; }
-
-        /// <summary>
-        /// Returns the value of the Maybe if it exists, or <paramref name="defaultValue"/> otherwise. 
-        /// </summary>
-        T ItOr(T defaultValue);
 
         /// <summary>
         /// Returns <see cref="It"/> or throws <paramref name="exception"/> if it doesn't exist.

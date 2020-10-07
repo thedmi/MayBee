@@ -9,7 +9,7 @@ namespace MayBee
     using System;
     using System.Diagnostics.CodeAnalysis;
 
-    public interface IMaybeTryCatch<T> 
+    public interface IMaybeTryCatch<out T> 
     {
         [SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", MessageId = "Catch",
             Justification = "The similarity to the reserved keyword 'catch' is intended.")]
