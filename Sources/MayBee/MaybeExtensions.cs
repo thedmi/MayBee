@@ -24,7 +24,7 @@ namespace MayBee
         /// </summary>
         public static Maybe<TResult> Select<T, TResult>(this IMaybe<T> maybe, Func<T, TResult> selector)
         {
-            return maybe.IsEmpty ? Maybe.Empty<TResult>() : Maybe.Is(selector(maybe.It));
+            return SelectMany(maybe, m => Maybe.Is(selector(m)));
         }
 
         /// <summary>
